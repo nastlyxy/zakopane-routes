@@ -1,28 +1,15 @@
 import './App.css'
-import RouteCard from './RouteCard';
-import Team from './Team';
-import { ThemeContext } from './ThemeContext';
 
-import { useState, useEffect} from 'react';
-const API_ROUTES = [
-  { id: 1, name: "Kasprowy Wierch", distance: 12, difficulty: "hard", hasCableCar: true },
-  { id: 2, name: "Morskie Oko", distance: 18, difficulty: "medium", hasCableCar: false },
-  { id: 3, name: "Gubałówka", distance: 4, difficulty: "easy", hasCableCar: true },
-  { id: 4, name: "Dolina Chochołowska", distance: 15, difficulty: "medium", hasCableCar: false }
-  ];
+import { ThemeContext } from './ThemeContext';
+import { Route, Routes, Link } from 'react-router-dom';
+import { useState } from 'react';
+
+import HomePage from './pages/HomePage';
+import RoutesPage from './pages/RoutesPage';
+import TeamPage from './pages/TeamPage';
 
 function App() {
-  const [routes, setRoutes] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
   const [isDarkMode, setIsDarkMode] = useState(false);
-
-  useEffect(()=>{
-    setTimeout(()=>{
-      setRoutes(API_ROUTES);
-      setIsLoading(false);
-    },2000)
-  },[])
-
   const [favorites, setFavorites] = useState([]);
 
   const toggleFavorite = (id) =>{
@@ -36,22 +23,30 @@ function App() {
   return (
     <ThemeContext.Provider value={isDarkMode}>
       <div className={`app-container ${isDarkMode? "dark": ""}`}>
-      <button className={`mode-button ${isDarkMode? "dark" : "light"}`} onClick={()=>setIsDarkMode(!isDarkMode)}>
+      
+      
+      <nav className="navigation-menu">
+        <Link to={"/"}>Home</Link>
+        <Link to={"/routes"}>Trails</Link>
+        <Link to={"/team"}>Find Members</Link>
+        <button className={`mode-button ${isDarkMode? "dark" : "light"}`} onClick={()=>setIsDarkMode(!isDarkMode)}>
         {isDarkMode? "switch to light theme": "switch to dark theme"}
       </button>
-      <h3>In favorites: {favorites.length}</h3>
-      <div className="routeCards-container">
-        {isLoading? <p className="loading-container">Looking for the best routes in the mountains... 🏔️</p> : routes.map((route)=>(
-        <RouteCard 
-        key={route.id} 
-        {...route} 
-        isFavorite={favorites.includes(route.id)} 
-        onToggle={()=> toggleFavorite(route.id)}
-        />
-      ))}
+      </nav>
+
+      <div className="content">
+        <Routes>
+        <Route path="/" element={<HomePage/>}/>
+        <Route path="/routes" favorites={favorites} toggleFavorite={toggleFavorite} element={<RoutesPage/>}/>
+        <Route path="/team" element={<TeamPage/>}/>
+      </Routes>
       </div>
 
-      <Team/>
+      <footer>
+        <h3>In favorites: {favorites.length}</h3>
+      </footer>
+
+      
       
     </div>
     </ThemeContext.Provider>
