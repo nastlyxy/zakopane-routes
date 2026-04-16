@@ -26,10 +26,12 @@ function App() {
       
       
       <nav className="navigation-menu">
-        <Link to={"/"}>Home</Link>
-        <Link to={"/routes"}>Trails</Link>
-        <Link to={"/team"}>Find Members</Link>
-        <button className={`mode-button ${isDarkMode? "dark" : "light"}`} onClick={()=>setIsDarkMode(!isDarkMode)}>
+        <Link className={`link ${isDarkMode? "dark" : ""}`} to={"/"}>Home</Link>
+        <Link className={`link ${isDarkMode? "dark" : ""}`} to={"/routes"}>Trails</Link>
+        <Link className={`link ${isDarkMode? "dark" : ""}`} to={"/team"}>Find Members</Link>
+        <button 
+        className={`mode-button ${isDarkMode? "dark" : "light"}`} 
+        onClick={()=>setIsDarkMode(!isDarkMode)}>
         {isDarkMode? "switch to light theme": "switch to dark theme"}
       </button>
       </nav>
@@ -37,7 +39,7 @@ function App() {
       <div className="content">
         <Routes>
         <Route path="/" element={<HomePage/>}/>
-        <Route path="/routes" favorites={favorites} toggleFavorite={toggleFavorite} element={<RoutesPage/>}/>
+        <Route path="/routes" element={<RoutesPage favorites={favorites} toggleFavorite={toggleFavorite}/>}/>
         <Route path="/team" element={<TeamPage/>}/>
       </Routes>
       </div>
