@@ -7,6 +7,7 @@ import { useState } from 'react';
 import HomePage from './pages/HomePage';
 import RoutesPage from './pages/RoutesPage';
 import TeamPage from './pages/TeamPage';
+import RouteDetails from './pages/RouteDetails';
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -41,6 +42,7 @@ function App() {
         <Route path="/" element={<HomePage/>}/>
         <Route path="/routes" element={<RoutesPage favorites={favorites} toggleFavorite={toggleFavorite}/>}/>
         <Route path="/team" element={<TeamPage/>}/>
+        <Route path="/routes/:cardId" element={<RouteDetails/>}></Route>
       </Routes>
       </div>
 

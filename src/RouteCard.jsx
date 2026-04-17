@@ -1,7 +1,8 @@
 import { useContext } from "react"
 import { ThemeContext } from "./ThemeContext"
+import { Link } from "react-router-dom";
 
-export default function RouteCard({name, distance, difficulty, hasCableCar, isFavorite, onToggle}){
+export default function RouteCard({name, distance, difficulty, hasCableCar, isFavorite, onToggle, id}){
 
     const isDarkMode = useContext(ThemeContext);
 
@@ -18,6 +19,7 @@ export default function RouteCard({name, distance, difficulty, hasCableCar, isFa
                 Has Cable Car🚠
                 </p>}
             {distance > 10 && <p className={`reminder-container ${isDarkMode? "dark" : ""}`}>❗Long route, please take your water💧</p>}
+            <Link to={`/routes/${id}`}>Show details</Link>
             </div>
             
             <button className={`button-container 
