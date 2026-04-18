@@ -73,9 +73,9 @@ body {
 .route-card-container{
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 60px;
   align-items: self-start;
-  width: 280px;
+  width: 330px;
   /* border: 2px solid #C8F3C7; */
   background-color: #F2F2F2;
   padding: 20px 35px;
@@ -92,6 +92,11 @@ body {
 .route-card-container.hard.dark{
   background-color: #7A1909;
   border: 2px solid #501909;
+}
+.card-image{
+  width: 100%;
+  object-fit: cover;
+  border-radius: 12px;
 }
 .info-container{
   min-height: 80%;

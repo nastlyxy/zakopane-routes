@@ -12,6 +12,7 @@ export default function RouteDetails(){
 
     return(
         <div className="route-details-container">
+            <img alt={currentRoute.name} src={currentRoute.image}/>
             <h2 className="details-title">{currentRoute.name} route details</h2>
             <p className="distance">Distance: {currentRoute.distance} km</p>
             <p className="difficulty">Difficulty: {currentRoute.difficulty}</p>
