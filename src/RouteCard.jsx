@@ -2,7 +2,7 @@ import { useContext } from "react"
 import { ThemeContext } from "./ThemeContext"
 import { Link } from "react-router-dom";
 
-export default function RouteCard({name, distance, difficulty, hasCableCar, isFavorite, onToggle, id}){
+export default function RouteCard({name, distance, difficulty, hasCableCar, isFavorite, onToggle, id, imgSrc}){
 
     const isDarkMode = useContext(ThemeContext);
 
@@ -12,6 +12,7 @@ export default function RouteCard({name, distance, difficulty, hasCableCar, isFa
         ${isDarkMode ? "dark" : ""}
         `}>
             <div className="info-container">
+                <img alt={name} src={imgSrc}/>
                 <h2 className="route-name">{name}</h2>
             <p>Distance: {distance} km</p>
             <p>Difficulty of route: {difficulty}</p>
