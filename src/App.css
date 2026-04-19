@@ -154,6 +154,134 @@ body {
 }
 
 
+/* route-details-page */
+.route-details-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  width: 100%;
+}
+.details-header, 
+.details-card {
+  width: 100%;
+  max-width: 800px; 
+}
+
+.details-header {
+  margin-bottom: 20px;
+}
+
+.back-button {
+  text-decoration: none;
+  color: #5F8B8C;
+  font-weight: bold;
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+.back-button:hover {
+  color: #333;
+}
+
+.route-details-page.dark .back-button {
+  color: #9BE1E3;
+}
+
+.details-card {
+  background-color: #F2F2F2;
+  border-radius: 20px;
+  box-shadow: 0px 10px 25px rgba(0,0,0,0.15);
+  overflow: hidden; 
+}
+
+.details-card.dark {
+  background-color: #333;
+  color: white;
+  box-shadow: 0px 10px 25px rgba(255,255,255,0.05);
+}
+
+
+.details-hero-image {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  display: block;
+}
+
+.details-body {
+  padding: 40px;
+}
+
+.details-body h1 {
+  margin-top: 0;
+  font-size: 42px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.details-card.dark .details-body h1 {
+  color: #fff;
+}
+
+.badges-container {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 35px;
+  flex-wrap: wrap;
+}
+
+.badge {
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+
+.badge.distance {
+  background-color: #9BE1E3;
+  color: #1A4D4E;
+}
+
+.badge.difficulty.easy {
+  background-color: #C8F3C7; 
+  color: #2D5A2C;
+}
+
+.badge.difficulty.medium {
+  background-color: #FFE4B5; 
+  color: #8B4500;
+}
+
+.badge.difficulty.hard {
+  background-color: #FFE1E3; 
+  color: red;
+}
+
+.badge.cable-car {
+  background-color: #E2E2E2;
+  color: #333;
+}
+
+.description-section h3 {
+  font-size: 22px;
+  margin-bottom: 15px;
+  border-bottom: 3px solid #9BE1E3; 
+  padding-bottom: 8px;
+  display: inline-block;
+}
+
+.description-section p {
+  font-size: 17px;
+  line-height: 1.7;
+  color: #444;
+}
+
+.details-card.dark .description-section p {
+  color: #ccc;
+}
+
 
 .team-page-container{
   display: flex;
@@ -183,6 +311,7 @@ body {
 .searching-member-container.dark::placeholder{
   color: #EBEBEB;
 }
+
 
 .team-container{
   display: flex;
