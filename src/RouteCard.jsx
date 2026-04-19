@@ -3,14 +3,11 @@ import { ThemeContext } from "./ThemeContext"
 import { Link } from "react-router-dom";
 
 export default function RouteCard({name, distance, difficulty, hasCableCar, isFavorite, onToggle, id, image}){
-
     const isDarkMode = useContext(ThemeContext);
 
     return(
-        <div className={`route-card-container 
-        ${difficulty === "hard" ? "hard" : ""} 
-        ${isDarkMode ? "dark" : ""}
-        `}>
+        <div className={`route-card-container ${difficulty === "hard" ? "hard" : ""} ${isDarkMode ? "dark" : ""}`}>
+            
             <div className="card-image-side">
                 <img alt={name} src={image}/>
                 {hasCableCar && <span className="image-badge">🚠</span>}
@@ -35,10 +32,10 @@ export default function RouteCard({name, distance, difficulty, hasCableCar, isFa
                 <div className="card-footer-actions">
                     <Link to={`/routes/${id}`} className="details-link">Details →</Link>
                     <button 
-                        className={`fav-button ${isFavorite ? "active" : ""}`} 
+                        className={`fav-button ${isFavorite ? "inFavorites" : ""} ${isDarkMode ? "dark" : ""}`} 
                         onClick={onToggle}
                     >
-                        {isFavorite ? "★" : "☆"}
+                        {isFavorite ? "★ Saved" : "☆ Save"}
                     </button>
                 </div>
             </div>

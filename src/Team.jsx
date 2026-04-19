@@ -14,11 +14,13 @@ export default function Team(){
         .then(data=>{
             setMembers(data);
             setIsLoading(false);
-            searchInputRef.current.focus();
+            if (searchInputRef.current) searchInputRef.current.focus();
         })
-    },[])
+        .catch(err => console.error("Failed to fetch members:", err));
+        
+},[])
 
-    const isDark = useContext(ThemeContext);
+    const isDarkMode = useContext(ThemeContext);
 
     const filteredMembers = members.filter(member => member.name.toLowerCase().includes(searchQuery.toLowerCase()))
 
@@ -26,7 +28,7 @@ export default function Team(){
         <div className="team-container">
             <p className="title-members-container">Find members for your route 🔍</p>
             <input 
-            className={`searching-member-container ${isDark? "dark" : ""}`} 
+            className={`searching-member-container ${isDarkMode? "dark" : ""}`} 
             type="text"
             placeholder="Searching by name..." 
             value={searchQuery}
@@ -37,14 +39,13 @@ export default function Team(){
                 {isLoading? 
             "Looking for members...":
             filteredMembers.map((member)=>(
-                <div className={`member-card-container ${isDarkMode ? "dark" : ""}`} key={index}>
-                    <img className="member-image" src={member.image} alt={member.name} />
-                    <div className="member-info">
-                        <h3>{member.name}</h3>
-                        <span className="member-role">{member.role}</span>
-                        <p>{member.bio}</p>
+                <div className={`member-card-container ${isDarkMode ? "dark" : ""}`} key={member.id}>
+                        <div className="member-info">
+                            <h3 className="name-container">{member.name}</h3>
+                            <span className={`email-container ${isDarkMode ? "dark" : ""}`}>{member.email}</span>
+                            <p>Company: {member.company.name}</p>
+                        </div>
                     </div>
-                </div>
                 
             ))
             }

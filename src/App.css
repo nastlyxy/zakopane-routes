@@ -1,5 +1,6 @@
-/*COMMON STYLES AND VARIABLES*/
-
+/* =========================================
+   Common styles
+   ========================================= */
 * {
   box-sizing: border-box;
 }
@@ -7,423 +8,135 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   background-color: #f4f4f4;
   color: #333;
+  transition: all 0.3s ease;
 }
-.app-container{
+
+.app-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-}
-.app-container.dark{
-  background-color: #212121;
-  color: #EBEBEB;
+  min-height: 100vh;
 }
 
-/*NAVIGATION MENU */
-.navigation-menu{
+.app-container.dark {
+  background-color: #212121;
+  color: #ebebeb;
+}
+
+/* =========================================
+   Navigation menu
+   ========================================= */
+.navigation-menu {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   gap: 50px;
   margin: 20px 0;
+  width: 100%;
 }
-.link{
+
+.link {
   padding: 15px;
   font-size: 18px;
   text-decoration: none;
   color: #314747;
+  transition: all 0.2s ease;
 }
-.link:hover{
+
+.link:hover {
   border-bottom: 2px solid #314747;
 }
-.link.dark{
-  color: #EBEBEB;
+
+.link.dark {
+  color: #ebebeb;
 }
-.link.dark:hover{
-  border-bottom: 2px solid #EBEBEB;
+.link.dark:hover {
+  border-bottom: 2px solid #ebebeb;
 }
-.mode-button{
+
+.mode-button {
   font-size: 18px;
-  padding: 10px;
+  padding: 10px 20px;
   margin: 15px;
   border: none;
   border-radius: 10px;
   background-color: #212121;
-  color: #EBEBEB;
-  transition: all .3s ease;
-}
-.mode-button.dark{
-  background-color: #EBEBEB;
-  color: #212121;
-}
-
-
-/*ROUTE CARDS PAGE STYLES*/
-.loading-container{
-  font-size: 48px;
-  margin-top: 100px;
-}
-.routeCards-container{
-  display: flex;
-  gap: 45px;
-  /* align-items: center; */
-  justify-content: center;
-  margin: 30px 0;
-}
-.route-card-container{
-  display: flex;
-  flex-direction: column;
-  gap: 60px;
-  align-items: self-start;
-  width: 330px;
-  /* border: 2px solid #C8F3C7; */
-  background-color: #F2F2F2;
-  padding: 20px 35px;
-  border-radius: 20px;
-  box-shadow: 0px 5px 13px 4px rgba(0,0,0,0.19);
-}
-.route-card-container.dark{
-  background-color: #4A4A4A;
-}
-.route-card-container.hard{
-  border: 2px solid red;
-  background-color: #FFE1E3;
-}
-.route-card-container.hard.dark{
-  background-color: #7A1909;
-  border: 2px solid #501909;
-}
-.card-image{
-  width: 100%;
-  object-fit: cover;
-  border-radius: 12px;
-}
-.info-container{
-  min-height: 80%;
-}
-
-.has-cable-car-container{
-  color: #4E5E4D;
-}
-.has-cable-car-container.dark{
-  color: #A9C2A9;
-}
-.reminder-container{
-  color: gray;
-}
-.reminder-container.dark{
-  color: #C4C4C4;
-}
-
-.button-container{
-  width: 100%;
-  border: 2px solid #5F8B8C;
-  font-size: 18px;
-  padding: 10px;
-  border-radius: 8px;
-  background-color: #9BE1E3;
+  color: #ebebeb;
+  cursor: pointer;
   transition: all 0.3s ease;
 }
-.button-container:hover{
-  background-color: #5F8B8C;
-  color: white;
-}
-.button-container.inFavorites{
-  border: 2px solid red;
-  background-color: #FFE1E3;
-}
-.button-container.inFavorites:hover{
-  background-color: red;
-}
-.button-container.dark{
-  background-color: #4B6D6E;
-  border: 2px solid #314747;
-  color: #EBEBEB;
-}
-.button-container.dark:hover{
-  background-color: #314747;
-}
-.button-container.inFavorites.dark{
-  background-color: #FFE1E3;
+
+.mode-button.dark {
+  background-color: #ebebeb;
   color: #212121;
-  border: 2px solid #501909;
-}
-.button-container.inFavorites.dark:hover{
-  background-color: #501909;
-  color: #EBEBEB;
 }
 
-
-/* ROUTE DETAILS PAGE STYLES*/
-.route-details-page {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 40px 20px;
-  width: 100%;
-}
-.details-header, 
-.details-card {
-  width: 100%;
-  max-width: 800px; 
-}
-
-.details-header {
-  margin-bottom: 20px;
-}
-
-.back-button {
-  text-decoration: none;
-  color: #5F8B8C;
-  font-weight: bold;
-  font-size: 18px;
-  transition: color 0.3s ease;
-}
-
-.back-button:hover {
-  color: #333;
-}
-
-.route-details-page.dark .back-button {
-  color: #9BE1E3;
-}
-
-.details-card {
-  background-color: #F2F2F2;
-  border-radius: 20px;
-  box-shadow: 0px 10px 25px rgba(0,0,0,0.15);
-  overflow: hidden; 
-}
-
-.details-card.dark {
-  background-color: #333;
-  color: white;
-  box-shadow: 0px 10px 25px rgba(255,255,255,0.05);
-}
-
-
-.details-hero-image {
-  width: 100%;
-  height: 350px;
-  object-fit: cover;
-  display: block;
-}
-
-.details-body {
-  padding: 40px;
-}
-
-.details-body h1 {
-  margin-top: 0;
-  font-size: 42px;
-  color: #333;
-  margin-bottom: 20px;
-}
-
-.details-card.dark .details-body h1 {
-  color: #fff;
-}
-
-.badges-container {
-  display: flex;
-  gap: 15px;
-  margin-bottom: 35px;
-  flex-wrap: wrap;
-}
-
-.badge {
-  padding: 8px 16px;
-  border-radius: 20px;
-  font-weight: 700;
-  font-size: 14px;
-  letter-spacing: 0.5px;
-}
-
-.badge.distance {
-  background-color: #9BE1E3;
-  color: #1A4D4E;
-}
-
-.badge.difficulty.easy {
-  background-color: #C8F3C7; 
-  color: #2D5A2C;
-}
-
-.badge.difficulty.medium {
-  background-color: #FFE4B5; 
-  color: #8B4500;
-}
-
-.badge.difficulty.hard {
-  background-color: #FFE1E3; 
-  color: red;
-}
-
-.badge.cable-car {
-  background-color: #E2E2E2;
-  color: #333;
-}
-
-.description-section h3 {
-  font-size: 22px;
-  margin-bottom: 15px;
-  border-bottom: 3px solid #9BE1E3; 
-  padding-bottom: 8px;
-  display: inline-block;
-}
-
-.description-section p {
-  font-size: 17px;
-  line-height: 1.7;
-  color: #444;
-}
-
-.details-card.dark .description-section p {
-  color: #ccc;
-}
-
-
-
-/*TEAM PAGE STYLES*/
-.team-page-container{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.title-members-container{
-  font-size: 24px;
-  margin: 30px 0;
-}
-
-.searching-member-container{
-  margin:  0 0 40px 0;
-  width: 80%;
-  height: 40px;
-  border: none;
-  background-color: #9BE1E3;
-  border-radius: 10px;
-}
-.searching-member-container::placeholder{
-  padding: 20px 10px;
-  font-size: 15px;
-}
-.searching-member-container.dark{
-  background-color: #4B6D6E;
-}
-.searching-member-container.dark::placeholder{
-  color: #EBEBEB;
-}
-
-
-.team-container{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-
-}
-.members-container{
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: flex-start;
-  gap: 20px;
-  width: 80%;
-
-}
-.member-card-container{
-  width: 285px;
-  box-shadow: 0px 5px 13px 4px rgba(0,0,0,0.19);
-  padding: 15px;
-  border-radius: 15px;
-  border: 2px solid #9BE1E3;
-  
-}
-.name-container{
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-.email-container{
-  color: #4E5E4D;
-}
-.email-container.dark{
-  color: #A9C2A9;
-}
-
-
-/*GRID LAYOUT STYLES*/
-.routeCards-container, .members-container {
+/* =========================================
+   Grid layout (ROUTE & TEAM)
+   ========================================= */
+.routeCards-container,
+.members-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(550px, 1fr));
-  gap: 25px;
+  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+  gap: 30px;
   width: 95%;
   max-width: 1100px;
-  padding: 40px 0;
+  padding: 20px 0;
+  margin: 0 auto;
 }
-@media (max-width: 600px) {
-  .routeCards-container, .members-container {
+
+@media (max-width: 650px) {
+  .routeCards-container,
+  .members-container {
     grid-template-columns: 1fr;
   }
 }
 
-.route-card-container, .member-card-container {
+/* =========================================
+   Cards styles
+   ========================================= */
+.route-card-container,
+.member-card-container {
   display: flex;
   flex-direction: row;
-  background: white;
+  background: #f2f2f2;
   border-radius: 18px;
   overflow: hidden;
-  height: 220px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.06);
-  transition: all .3s ease;
-}
-
-.route-card-container:hover {
-  transform: translateX(-5px);
-  box-shadow: 0px 8px 20px rgba(0,0,0,0.1);
-}
-
-.dark .route-card-container, 
-.dark .member-card-container {
-  background-color: #333;
-}
-
-.info-container {
-  flex-grow: 1; 
-  display: flex;
-  flex-direction: column;
-}
-
-.route-card-container img {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-  border-radius: 12px;
-  margin-bottom: 15px;
-}
-
-.searching-member-container {
-  width: 100%;
-  max-width: 500px;
-  padding: 12px 20px;
-  border: 2px solid #9BE1E3;
+  min-height: 200px;
+  box-shadow: 0px 5px 13px 4px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
-  outline: none;
 }
 
-.searching-member-container:focus {
-  border-color: #5F8B8C;
-  box-shadow: 0 0 8px rgba(155, 225, 227, 0.5);
+.route-card-container.dark,
+.member-card-container.dark {
+  background-color: #4a4a4a;
 }
+
+.route-card-container:hover,
+.member-card-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.route-card-container.hard {
+  border: 2px solid red;
+  background-color: #ffe1e3;
+}
+.route-card-container.hard.dark {
+  background-color: #7a1909;
+  border: 2px solid #501909;
+}
+
 .card-image-side {
   position: relative;
-  width: 200px; /* Фиксированная ширина картинки */
+  width: 220px;
   flex-shrink: 0;
 }
 
-.card-image-side img, .member-image {
+.card-image-side img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -433,14 +146,14 @@ body {
   position: absolute;
   top: 10px;
   left: 10px;
-  background: rgba(255,255,255,0.9);
+  background: rgba(255, 255, 255, 0.9);
   padding: 5px;
   border-radius: 50%;
   font-size: 14px;
 }
 
-/* Правая сторона: Текст */
-.card-info-side, .member-info {
+.card-info-side,
+.member-info {
   flex: 1;
   padding: 20px;
   display: flex;
@@ -448,57 +161,243 @@ body {
   justify-content: space-between;
 }
 
-.route-name {
+.route-name,
+.name-container {
   margin: 0 0 10px 0;
   font-size: 1.4rem;
+  color: #333;
+}
+
+.dark .route-name,
+.dark .name-container {
+  color: #ebebeb;
+}
+
+.email-container {
+  color: #4e5e4d;
+  font-weight: 500;
+}
+.email-container.dark {
+  color: #a9c2a9;
 }
 
 .reminder-text {
   font-size: 0.85rem;
-  color: #888;
+  color: gray;
   margin-top: 5px;
 }
+.dark .reminder-text {
+  color: #c4c4c4;
+}
 
-/* Нижняя часть карточки с кнопками */
 .card-footer-actions {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-top: 1px solid #eee;
+  border-top: 1px solid #ddd;
   padding-top: 15px;
+  margin-top: 15px;
 }
 
 .dark .card-footer-actions {
-  border-top-color: #444;
+  border-top-color: #666;
 }
 
 .details-link {
   text-decoration: none;
-  color: #9BE1E3;
+  color: #5f8b8c;
   font-weight: bold;
-  font-size: 0.9rem;
+  font-size: 1rem;
+}
+.dark .details-link {
+  color: #9be1e3;
 }
 
 .fav-button {
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-  color: #ccc;
-  transition: all .3s ease;
-}
-
-.fav-button.active {
-  color: #ffcc00;
-}
-
-
-.member-role {
-  display: inline-block;
-  background: #FFE1E3;
-  padding: 4px 10px;
-  border-radius: 10px;
-  font-size: 0.8rem;
+  border: 2px solid #5f8b8c;
+  border-radius: 8px;
+  background-color: #9be1e3;
+  padding: 8px 15px;
   font-weight: bold;
-  margin-bottom: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.fav-button:hover {
+  background-color: #5f8b8c;
+  color: white;
+}
+
+.fav-button.inFavorites {
+  border: 2px solid red;
+  background-color: #ffe1e3;
+}
+.fav-button.inFavorites:hover {
+  background-color: red;
+  color: white;
+}
+
+.fav-button.dark {
+  background-color: #4b6d6e;
+  border-color: #314747;
+  color: #ebebeb;
+}
+.fav-button.dark:hover {
+  background-color: #314747;
+}
+
+.fav-button.inFavorites.dark {
+  background-color: #ffe1e3;
+  color: #212121;
+  border-color: #501909;
+}
+.fav-button.inFavorites.dark:hover {
+  background-color: #501909;
+  color: #ebebeb;
+}
+
+/* =========================================
+   Team page styles
+   ========================================= */
+.team-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.title-members-container {
+  font-size: 24px;
+  margin: 30px 0;
+}
+
+.searching-member-container {
+  margin: 0 0 30px 0;
+  width: 100%;
+  max-width: 500px;
+  height: 45px;
+  border: 2px solid #5f8b8c;
+  background-color: #9be1e3;
+  border-radius: 10px;
+  padding: 0 15px;
+  font-size: 16px;
+  outline: none;
+}
+
+.searching-member-container.dark {
+  background-color: #4b6d6e;
+  border-color: #314747;
+  color: white;
+}
+.searching-member-container.dark::placeholder {
+  color: #ebebeb;
+}
+
+/* =========================================
+   route details page
+   ========================================= */
+.route-details-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  width: 100%;
+}
+.details-header,
+.details-card {
+  width: 100%;
+  max-width: 800px;
+}
+.details-header {
+  margin-bottom: 20px;
+}
+.back-button {
+  text-decoration: none;
+  color: #5f8b8c;
+  font-weight: bold;
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+.back-button:hover {
+  color: #333;
+}
+.route-details-page.dark .back-button {
+  color: #9be1e3;
+}
+.details-card {
+  background-color: #f2f2f2;
+  border-radius: 20px;
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+.details-card.dark {
+  background-color: #333;
+  color: white;
+  box-shadow: 0px 10px 25px rgba(255, 255, 255, 0.05);
+}
+.details-hero-image {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  display: block;
+}
+.details-body {
+  padding: 40px;
+}
+.details-body h1 {
+  margin-top: 0;
+  font-size: 42px;
+  color: #333;
+  margin-bottom: 20px;
+}
+.details-card.dark .details-body h1 {
+  color: #fff;
+}
+.badges-container {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+.badge {
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+.badge.distance {
+  background-color: #9be1e3;
+  color: #1a4d4e;
+}
+.badge.difficulty.easy {
+  background-color: #c8f3c7;
+  color: #2d5a2c;
+}
+.badge.difficulty.medium {
+  background-color: #ffe4b5;
+  color: #8b4500;
+}
+.badge.difficulty.hard {
+  background-color: #ffe1e3;
+  color: red;
+}
+.badge.cable-car {
+  background-color: #e2e2e2;
+  color: #333;
+}
+.description-section h3 {
+  font-size: 22px;
+  margin-bottom: 15px;
+  border-bottom: 3px solid #9be1e3;
+  padding-bottom: 8px;
+  display: inline-block;
+}
+.description-section p {
+  font-size: 17px;
+  line-height: 1.7;
+  color: #444;
+}
+.details-card.dark .description-section p {
+  color: #ccc;
 }
