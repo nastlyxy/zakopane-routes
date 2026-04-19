@@ -11,25 +11,37 @@ export default function RouteCard({name, distance, difficulty, hasCableCar, isFa
         ${difficulty === "hard" ? "hard" : ""} 
         ${isDarkMode ? "dark" : ""}
         `}>
-            
-            <div className="info-container">
-                <img className="card-image" alt={name} src={image}/>
-                <h2 className="route-name">{name}</h2>
-            <p>Distance: {distance} km</p>
-            <p>Difficulty of route: {difficulty}</p>
-            {hasCableCar && <p className={`has-cable-car-container ${isDarkMode? "dark" : ""}`}>
-                Has Cable Car🚠
-                </p>}
-            {distance > 10 && <p className={`reminder-container ${isDarkMode? "dark" : ""}`}>❗Long route, please take your water💧</p>}
-            <Link to={`/routes/${id}`}>Show details</Link>
+            <div className="card-image-side">
+                <img alt={name} src={image}/>
+                {hasCableCar && <span className="image-badge">🚠</span>}
             </div>
             
-            <button className={`button-container 
-                ${isFavorite? "inFavorites" : ""}
-                ${isDarkMode? "dark" : ""}`} 
-                onClick={onToggle}>
-                {isFavorite? "Remove from favorites": "Add to favorites"}
-            </button>
+            <div className="card-info-side">
+                <div className="card-main-content">
+                    <h2 className="route-name">{name}</h2>
+                    
+                    <div className="badges-container">
+                        <span className="badge distance">{distance} km</span>
+                        <span className={`badge difficulty ${difficulty}`}>
+                            {difficulty.toUpperCase()}
+                        </span>
+                    </div>
+
+                    {distance > 10 && (
+                        <p className="reminder-text">❗ Long route, take water</p>
+                    )}
+                </div>
+                
+                <div className="card-footer-actions">
+                    <Link to={`/routes/${id}`} className="details-link">Details →</Link>
+                    <button 
+                        className={`fav-button ${isFavorite ? "active" : ""}`} 
+                        onClick={onToggle}
+                    >
+                        {isFavorite ? "★" : "☆"}
+                    </button>
+                </div>
+            </div>
         </div>
     )
 }

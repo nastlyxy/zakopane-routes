@@ -37,9 +37,13 @@ export default function Team(){
                 {isLoading? 
             "Looking for members...":
             filteredMembers.map((member)=>(
-                <div key={member.id} className="member-card-container">
-                    <div className="name-container">{member.name}</div>
-                <div className={`email-container ${isDark? "dark" : ""}`}>Email: {member.email}</div>
+                <div className={`member-card-container ${isDarkMode ? "dark" : ""}`} key={index}>
+                    <img className="member-image" src={member.image} alt={member.name} />
+                    <div className="member-info">
+                        <h3>{member.name}</h3>
+                        <span className="member-role">{member.role}</span>
+                        <p>{member.bio}</p>
+                    </div>
                 </div>
                 
             ))

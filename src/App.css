@@ -357,24 +357,37 @@ body {
 /*GRID LAYOUT STYLES*/
 .routeCards-container, .members-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 30px;
-  width: 90%;
-  max-width: 1200px;
-  margin: 30px auto;
+  grid-template-columns: repeat(auto-fill, minmax(550px, 1fr));
+  gap: 25px;
+  width: 95%;
+  max-width: 1100px;
+  padding: 40px 0;
+}
+@media (max-width: 600px) {
+  .routeCards-container, .members-container {
+    grid-template-columns: 1fr;
+  }
 }
 
 .route-card-container, .member-card-container {
   display: flex;
-  flex-direction: column;
-  height: 100%; 
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  width: 100%;
+  flex-direction: row;
+  background: white;
+  border-radius: 18px;
+  overflow: hidden;
+  height: 220px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+  transition: all .3s ease;
 }
 
-.route-card-container:hover, .member-card-container:hover {
-  transform: translateY(-5px);
-  box-shadow: 0px 8px 20px rgba(0,0,0,0.2);
+.route-card-container:hover {
+  transform: translateX(-5px);
+  box-shadow: 0px 8px 20px rgba(0,0,0,0.1);
+}
+
+.dark .route-card-container, 
+.dark .member-card-container {
+  background-color: #333;
 }
 
 .info-container {
@@ -403,4 +416,89 @@ body {
 .searching-member-container:focus {
   border-color: #5F8B8C;
   box-shadow: 0 0 8px rgba(155, 225, 227, 0.5);
+}
+.card-image-side {
+  position: relative;
+  width: 200px; /* Фиксированная ширина картинки */
+  flex-shrink: 0;
+}
+
+.card-image-side img, .member-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.image-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(255,255,255,0.9);
+  padding: 5px;
+  border-radius: 50%;
+  font-size: 14px;
+}
+
+/* Правая сторона: Текст */
+.card-info-side, .member-info {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.route-name {
+  margin: 0 0 10px 0;
+  font-size: 1.4rem;
+}
+
+.reminder-text {
+  font-size: 0.85rem;
+  color: #888;
+  margin-top: 5px;
+}
+
+/* Нижняя часть карточки с кнопками */
+.card-footer-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #eee;
+  padding-top: 15px;
+}
+
+.dark .card-footer-actions {
+  border-top-color: #444;
+}
+
+.details-link {
+  text-decoration: none;
+  color: #9BE1E3;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.fav-button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #ccc;
+  transition: all .3s ease;
+}
+
+.fav-button.active {
+  color: #ffcc00;
+}
+
+
+.member-role {
+  display: inline-block;
+  background: #FFE1E3;
+  padding: 4px 10px;
+  border-radius: 10px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
