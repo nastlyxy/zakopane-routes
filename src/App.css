@@ -73,6 +73,80 @@ body {
   background-color: #ebebeb;
   color: #212121;
 }
+/* =========================================
+   Home Page styles
+   ========================================= */
+
+.homepage-container {
+  width: 100%;
+}
+.hero-content {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)),
+    url("./assets/images/tatry.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  max-width: 1200px;
+  min-height: 65vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 30px;
+  border-radius: 30px;
+  padding: 40px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+.homepage-title {
+  color: #ffffff;
+  font-size: 4rem;
+  margin: 0;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.6);
+  letter-spacing: 1px;
+}
+.homepage-description {
+  color: #e0e0e0;
+  font-size: 1.3rem;
+  max-width: 650px; 
+  line-height: 1.6; 
+  margin: 0;
+  text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+}
+.routes-link {
+  text-decoration: none;
+  background-color: #9BE1E3; 
+  color: #213547;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 15px 40px;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(155, 225, 227, 0.4);
+  margin-top: 10px;
+}
+.routes-link:hover {
+  background-color: #5F8B8C;
+  color: white;
+  transform: translateY(-3px); 
+  box-shadow: 0 8px 20px rgba(95, 139, 140, 0.6);
+}
+
+@media (max-width: 768px) {
+  .hero-content {
+    min-height: 50vh;
+    border-radius: 20px;
+    padding: 30px 20px;
+  }
+  .homepage-title {
+    font-size: 2.5rem;
+  }
+  .homepage-description {
+    font-size: 1.1rem;
+  }
+}
 
 /* =========================================
    Grid layout (ROUTE & TEAM)
@@ -208,6 +282,10 @@ body {
   color: #5f8b8c;
   font-weight: bold;
   font-size: 1rem;
+  transition: all 0.3s ease;
+}
+.details-link:hover {
+  color: #333;
 }
 .dark .details-link {
   color: #9be1e3;
