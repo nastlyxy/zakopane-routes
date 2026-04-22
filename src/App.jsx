@@ -8,6 +8,7 @@ import HomePage from './pages/HomePage';
 import RoutesPage from './pages/RoutesPage';
 import TeamPage from './pages/TeamPage';
 import RouteDetails from './pages/RouteDetails';
+import Footer from './Footer';
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -46,9 +47,9 @@ function App() {
       </Routes>
       </div>
 
-      <footer>
-        <h3>In favorites: {favorites.length}</h3>
-      </footer>
+      <h3>In favorites: {favorites.length}</h3>
+      
+      <Footer/>
 
       
       
