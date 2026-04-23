@@ -2,8 +2,6 @@ import { Link } from "react-router-dom";
 import { ThemeContext } from "../ThemeContext";
 import { useContext } from "react";
 
-import HeroImage from "../assets/images/tatry.jpg";
-
 export default function HomePage() {
   const isDarkMode = useContext(ThemeContext);
 

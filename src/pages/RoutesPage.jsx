@@ -25,7 +25,6 @@ export default function RoutesPage({favorites, toggleFavorite}){
         {...route} 
         isFavorite={favorites.includes(route.id)} 
         onToggle={()=> toggleFavorite(route.id)}
-        imgSrc={route.image}
         />
       ))}
       </div>
