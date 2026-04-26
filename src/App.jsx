@@ -1,6 +1,6 @@
 import "./App.css";
 
-import { ThemeContext } from "./ThemeContext";
+import { ThemeContext } from "./context/ThemeContext";
 import { Route, Routes, Link } from "react-router-dom";
 import { useState } from "react";
 
@@ -8,7 +8,7 @@ import HomePage from "./pages/HomePage";
 import RoutesPage from "./pages/RoutesPage";
 import TeamPage from "./pages/TeamPage";
 import RouteDetails from "./pages/RouteDetails";
-import Footer from "./Footer";
+import Footer from "./components/Footer";
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);

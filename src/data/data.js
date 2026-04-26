@@ -1,7 +1,7 @@
-import kasprowyImg from "./assets/images/kasprowy-wierch.jpg";
-import morskieImg from "./assets/images/morskie-oko.jpg";
-import gubalowkaImg from "./assets/images/gubalowka.jpg";
-import chocholowskaImg from "./assets/images/dolina-chocholowska.jpg";
+import kasprowyImg from "../assets/images/kasprowy-wierch.jpg";
+import morskieImg from "../assets/images/morskie-oko.jpg";
+import gubalowkaImg from "../assets/images/gubalowka.jpg";
+import chocholowskaImg from "../assets/images/dolina-chocholowska.jpg";
 
 export const API_ROUTES = [
   {

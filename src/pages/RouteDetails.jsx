@@ -1,7 +1,7 @@
 import { Link, useParams } from "react-router-dom";
-import { API_ROUTES } from "../data";
+import { API_ROUTES } from "../data/data";
 import { useContext } from "react";
-import { ThemeContext } from "../ThemeContext";
+import { ThemeContext } from "../context/ThemeContext";
 
 export default function RouteDetails() {
   const { cardId } = useParams();

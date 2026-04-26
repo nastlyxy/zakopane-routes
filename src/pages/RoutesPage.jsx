@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import RouteCard from "../RouteCard";
-import { API_ROUTES } from "../data.js";
+import RouteCard from "../components/RouteCard";
+import { API_ROUTES } from "../data/data";
 
 export default function RoutesPage({ favorites, toggleFavorite }) {
   const [routes, setRoutes] = useState([]);
