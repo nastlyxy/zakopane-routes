@@ -2,7 +2,7 @@
 
 A modern, fully responsive React application designed to help travelers plan their perfect mountain adventures in the Polish Tatras.
 
-## ✨ Features
+## Features
 
 - **Dynamic Routing:** Seamless SPA navigation between the home page, trails list, team members, and detailed route pages.
 - **Theme Switcher:** Integrated Dark/Light mode utilizing the React Context API.
@@ -32,7 +32,7 @@ src/
 ## How to Run Locally
 1. **Clone the repository:**
    ```bash
-   git clone [https://github.com/nastlyxy/zakopane-routes.git](https://github.com/nastlyxy/zakopane-routes.git)
+   git clone https://github.com/nastlyxy/zakopane-routes.git
 2. **Navigate to the project directory:**
    ```bash
    cd zakopane-routes  
