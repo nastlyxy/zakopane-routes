@@ -1,5 +1,5 @@
 /* =========================================
-   Common styles
+   1. COMMON STYLES & BASE
    ========================================= */
 * {
   box-sizing: border-box;
@@ -18,7 +18,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 100vh;
+  min-height: 100vh; /* Позволяет прижать футер к низу */
 }
 
 .app-container.dark {
@@ -26,8 +26,16 @@ body {
   color: #ebebeb;
 }
 
+.content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 1; /* Растягивает контент, чтобы футер всегда был внизу */
+}
+
 /* =========================================
-   Navigation menu
+   2. NAVIGATION
    ========================================= */
 .navigation-menu {
   display: flex;
@@ -73,15 +81,16 @@ body {
   background-color: #ebebeb;
   color: #212121;
 }
-/* =========================================
-   Home Page styles
-   ========================================= */
 
+/* =========================================
+   3. HOME PAGE
+   ========================================= */
 .homepage-container {
   width: 100%;
   padding: 0;
   margin: 0;
 }
+
 .hero-content {
   background-image:
     linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)),
@@ -91,7 +100,6 @@ body {
   background-size: cover;
   background-attachment: fixed;
   width: 100%;
-  max-width: 1200px;
   min-height: 85vh;
   display: flex;
   flex-direction: column;
@@ -99,10 +107,9 @@ body {
   align-items: center;
   text-align: center;
   gap: 30px;
-  border-radius: 30px;
-  padding: 40px;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  padding: 40px 20px;
 }
+
 .homepage-title {
   color: #ffffff;
   font-size: clamp(2.5rem, 8vw, 5rem);
@@ -110,6 +117,7 @@ body {
   text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.6);
   letter-spacing: 1px;
 }
+
 .homepage-description {
   color: #e0e0e0;
   font-size: clamp(1rem, 2vw, 1.3rem);
@@ -118,6 +126,7 @@ body {
   margin: 0;
   text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
 }
+
 .routes-link {
   text-decoration: none;
   background-color: #9be1e3;
@@ -130,6 +139,7 @@ body {
   box-shadow: 0 5px 15px rgba(155, 225, 227, 0.4);
   margin-top: 10px;
 }
+
 .routes-link:hover {
   background-color: #5f8b8c;
   color: white;
@@ -137,23 +147,16 @@ body {
   box-shadow: 0 8px 20px rgba(95, 139, 140, 0.6);
 }
 
-@media (max-width: 768px) {
-  .hero-content {
-    min-height: 50vh;
-    border-radius: 20px;
-    padding: 30px 20px;
-  }
-  .homepage-title {
-    font-size: 2.5rem;
-  }
-  .homepage-description {
-    font-size: 1.1rem;
-  }
+/* =========================================
+   4. GRID LAYOUTS (ROUTES & TEAM)
+   ========================================= */
+.routes-page-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* =========================================
-   Grid layout (ROUTE & TEAM)
-   ========================================= */
 .routeCards-container,
 .members-container {
   display: grid;
@@ -165,74 +168,8 @@ body {
   margin: 0 auto;
 }
 
-@media (max-width: 650px) {
-  .routeCards-container,
-  .members-container {
-    grid-template-columns: 1fr;
-  }
-}
 /* =========================================
-   10. RESPONSIVE 
-   ========================================= */
-
-/* --- ПЛАНШЕТЫ (экраны до 1024px) --- */
-@media (max-width: 1024px) {
-  /* 1. Сетка: делаем карточки поуже, чтобы влезло 2 в ряд */
-  .routeCards-container,
-  .members-container {
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 25px;
-  }
-
-  /* 2. Сами карточки: переводим из горизонтальных в вертикальные */
-  .route-card-container,
-  .member-card-container {
-    flex-direction: column; 
-    min-height: auto;
-  }
-  
-
-  /* 4. Кнопки: ставим друг под другом для удобного нажатия пальцем */
-  .card-footer-actions {
-    flex-direction: column;
-    gap: 15px;
-  }
-  
-  
-}
-
-/* --- ТЕЛЕФОНЫ (экраны до 650px) --- */
-@media (max-width: 650px) {
-  /* 1. Навигация: разрешаем кнопкам переноситься на новую строку */
-  .navigation-menu {
-    flex-wrap: wrap;
-    gap: 15px;
-    padding: 15px;
-  }
-  
-  .link {
-    font-size: 16px;
-    padding: 5px;
-  }
-
-  /* 2. Сетка: строго одна колонка на весь экран */
-  .routeCards-container,
-  .members-container {
-    grid-template-columns: 1fr;
-    width: 100%;
-    padding: 15px;
-  }
-
-  /* 3. Футер: выравниваем по центру */
-  .footer {
-    flex-direction: column;
-    text-align: center;
-    padding: 30px 20px;
-  }
-}
-
-/* =========================================
-   Cards styles
+   5. CARDS (ROUTE & TEAM)
    ========================================= */
 .route-card-container,
 .member-card-container {
@@ -287,6 +224,50 @@ body {
   border-radius: 50%;
   font-size: 14px;
 }
+/* --- Стили для Аватарки Участника --- */
+.member-avatar-side {
+  width: 220px; /* Такая же ширина, как у картинки маршрута */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e0f7f8; /* Легкий голубой фон, как твоя тема */
+  flex-shrink: 0;
+  border-right: 1px solid #eee;
+}
+
+.dark .member-avatar-side {
+  background-color: #3a3a3a;
+  border-right-color: #555;
+}
+
+.member-avatar {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%; /* Делает картинку абсолютно круглой */
+  object-fit: cover;
+  border: 4px solid white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.dark .member-avatar {
+  border-color: #242424;
+}
+
+.member-card-container:hover .member-avatar {
+  transform: scale(1.05); /* Аватарка чуть увеличивается при наведении */
+}
+
+/* Специфичные цвета для бейджей команды */
+.badge.member-city {
+  background-color: #ffe4b5;
+  color: #8b4500;
+}
+
+.badge.member-company {
+  background-color: #e2e2e2;
+  color: #333;
+}
 
 .card-info-side,
 .member-info {
@@ -312,6 +293,10 @@ body {
 .email-container {
   color: #4e5e4d;
   font-weight: 500;
+  display: block;
+  word-wrap: break-word; /* Заставит длинный email перенестись на новую строку */
+  overflow-wrap: break-word;
+  margin-top: 5px;
 }
 .email-container.dark {
   color: #a9c2a9;
@@ -367,7 +352,6 @@ body {
   background-color: #5f8b8c;
   color: white;
 }
-
 .fav-button.inFavorites {
   border: 2px solid red;
   background-color: #ffe1e3;
@@ -376,7 +360,6 @@ body {
   background-color: red;
   color: white;
 }
-
 .fav-button.dark {
   background-color: #4b6d6e;
   border-color: #314747;
@@ -385,7 +368,6 @@ body {
 .fav-button.dark:hover {
   background-color: #314747;
 }
-
 .fav-button.inFavorites.dark {
   background-color: #ffe1e3;
   color: #212121;
@@ -397,7 +379,7 @@ body {
 }
 
 /* =========================================
-   Team page styles
+   6. TEAM PAGE
    ========================================= */
 .team-container {
   display: flex;
@@ -413,7 +395,7 @@ body {
 
 .searching-member-container {
   margin: 0 0 30px 0;
-  width: 100%;
+  width: 90%;
   max-width: 500px;
   height: 45px;
   border: 2px solid #5f8b8c;
@@ -434,7 +416,7 @@ body {
 }
 
 /* =========================================
-   route details page
+   7. ROUTE DETAILS PAGE
    ========================================= */
 .route-details-page {
   display: flex;
@@ -443,14 +425,17 @@ body {
   padding: 40px 20px;
   width: 100%;
 }
+
 .details-header,
 .details-card {
   width: 100%;
   max-width: 800px;
 }
+
 .details-header {
   margin-bottom: 20px;
 }
+
 .back-button {
   text-decoration: none;
   color: #5f8b8c;
@@ -464,6 +449,7 @@ body {
 .route-details-page.dark .back-button {
   color: #9be1e3;
 }
+
 .details-card {
   background-color: #f2f2f2;
   border-radius: 20px;
@@ -475,6 +461,7 @@ body {
   color: white;
   box-shadow: 0px 10px 25px rgba(255, 255, 255, 0.05);
 }
+
 .details-hero-image {
   width: 100%;
   height: 350px;
@@ -493,6 +480,7 @@ body {
 .details-card.dark .details-body h1 {
   color: #fff;
 }
+
 .badges-container {
   display: flex;
   gap: 15px;
@@ -526,6 +514,7 @@ body {
   background-color: #e2e2e2;
   color: #333;
 }
+
 .description-section h3 {
   font-size: 22px;
   margin-bottom: 15px;
@@ -543,12 +532,12 @@ body {
 }
 
 /* =========================================
-    FOOTER
+   8. FOOTER
    ========================================= */
 .footer {
   width: 100%;
   padding: 40px 50px;
-  margin-top: 20px;
+  margin-top: auto; /* Жестко прижимает футер к низу */
   background-color: #ffffff;
   border-top: 1px solid #eaeaea;
   display: flex;
@@ -563,29 +552,96 @@ body {
   background-color: #1a1a1a;
   border-top: 1px solid #333;
 }
-
 .footer-description {
   margin: 0;
   font-size: 1.1rem;
   color: #5f8b8c;
   font-weight: 600;
 }
-
 .footer.dark .footer-description {
   color: #9be1e3;
 }
-
 .footer-copyright {
   margin: 0;
   font-size: 0.95rem;
   color: #888;
 }
-
 .footer.dark .footer-copyright {
   color: #bbb;
 }
 
+/* =========================================
+   9. RESPONSIVE (МЕДИА-ЗАПРОСЫ ВСЕГДА В КОНЦЕ)
+   ========================================= */
+
+/* --- ПЛАНШЕТЫ (экраны до 1024px) --- */
+@media (max-width: 1024px) {
+  /* 1. Чиним меню: уменьшаем огромные пробелы */
+  .navigation-menu {
+    gap: 20px;
+    padding: 10px 20px;
+  }
+
+  /* 2. Сетка: карточки по 300px, чтобы на iPad идеально влезало 2 колонки */
+  .routeCards-container,
+  .members-container {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    width: 100%;
+    padding: 15px;
+  }
+
+  /* 3. Карточки становятся вертикальными */
+  .route-card-container,
+  .member-card-container {
+    flex-direction: column; 
+    min-height: auto;
+  }
+
+  /* 4. КРИТИЧНО: Картинка и аватарка должны занять всю ширину! */
+  .card-image-side,
+  .member-avatar-side {
+    width: 100%;
+    height: 200px;
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .dark .member-avatar-side {
+    border-bottom-color: #444;
+  }
+
+  /* 5. Кнопки на всю ширину для пальцев */
+  .card-footer-actions {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .fav-button {
+    width: 100%;
+  }
+}
+
+/* --- ТЕЛЕФОНЫ (экраны до 650px) --- */
 @media (max-width: 650px) {
+  .navigation-menu {
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 15px;
+  }
+
+  .link {
+    font-size: 16px;
+    padding: 5px;
+  }
+
+  .routeCards-container,
+  .members-container {
+    grid-template-columns: 1fr;
+    width: 100%;
+    padding: 15px;
+  }
+
   .footer {
     flex-direction: column;
     text-align: center;
