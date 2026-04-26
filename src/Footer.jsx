@@ -11,7 +11,9 @@ export default function Footer() {
         </p>
       </div>
       <div className="footer-author-info">
-        <p className="footer-copyright">© 2026. Developed by Anastasiya Haiduk</p>
+        <p className="footer-copyright">
+          © 2026 Developed by Anastasiya Haiduk
+        </p>
       </div>
     </footer>
   );

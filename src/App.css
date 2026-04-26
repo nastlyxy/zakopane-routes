@@ -1,5 +1,5 @@
 /* =========================================
-   1. COMMON STYLES & BASE
+   COMMON STYLES
    ========================================= */
 * {
   box-sizing: border-box;
@@ -12,13 +12,15 @@ body {
   background-color: #f4f4f4;
   color: #333;
   transition: all 0.3s ease;
+  overflow-x: hidden;
+  max-width: 100vw;
 }
 
 .app-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 100vh; /* Позволяет прижать футер к низу */
+  min-height: 100vh;
 }
 
 .app-container.dark {
@@ -31,11 +33,11 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  flex-grow: 1; /* Растягивает контент, чтобы футер всегда был внизу */
+  flex-grow: 1;
 }
 
 /* =========================================
-   2. NAVIGATION
+   NAVIGATION
    ========================================= */
 .navigation-menu {
   display: flex;
@@ -44,6 +46,7 @@ body {
   gap: 50px;
   margin: 20px 0;
   width: 100%;
+  flex-wrap: wrap;
 }
 
 .link {
@@ -57,12 +60,16 @@ body {
 .link:hover {
   border-bottom: 2px solid #314747;
 }
-
 .link.dark {
   color: #ebebeb;
 }
 .link.dark:hover {
   border-bottom: 2px solid #ebebeb;
+}
+
+.favs {
+  font-weight: bold;
+  color: #5f8b8c;
 }
 
 .mode-button {
@@ -76,14 +83,13 @@ body {
   cursor: pointer;
   transition: all 0.3s ease;
 }
-
 .mode-button.dark {
   background-color: #ebebeb;
   color: #212121;
 }
 
 /* =========================================
-   3. HOME PAGE
+   HOME PAGE
    ========================================= */
 .homepage-container {
   width: 100%;
@@ -148,7 +154,7 @@ body {
 }
 
 /* =========================================
-   4. GRID LAYOUTS (ROUTES & TEAM)
+   GRID LAYOUTS (ROUTES & TEAM)
    ========================================= */
 .routes-page-container {
   width: 100%;
@@ -169,7 +175,7 @@ body {
 }
 
 /* =========================================
-   5. CARDS (ROUTE & TEAM)
+   CARDS (ROUTE & TEAM)
    ========================================= */
 .route-card-container,
 .member-card-container {
@@ -181,6 +187,7 @@ body {
   min-height: 200px;
   box-shadow: 0px 5px 13px 4px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
+  min-width: 0;
 }
 
 .route-card-container.dark,
@@ -203,12 +210,12 @@ body {
   border: 2px solid #501909;
 }
 
+/* Route Image */
 .card-image-side {
   position: relative;
   width: 220px;
   flex-shrink: 0;
 }
-
 .card-image-side img {
   width: 100%;
   height: 100%;
@@ -224,17 +231,17 @@ body {
   border-radius: 50%;
   font-size: 14px;
 }
-/* --- Стили для Аватарки Участника --- */
+
+/* Team Avatar */
 .member-avatar-side {
-  width: 220px; /* Такая же ширина, как у картинки маршрута */
+  width: 220px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #e0f7f8; /* Легкий голубой фон, как твоя тема */
+  background-color: #e0f7f8;
   flex-shrink: 0;
   border-right: 1px solid #eee;
 }
-
 .dark .member-avatar-side {
   background-color: #3a3a3a;
   border-right-color: #555;
@@ -243,32 +250,20 @@ body {
 .member-avatar {
   width: 110px;
   height: 110px;
-  border-radius: 50%; /* Делает картинку абсолютно круглой */
+  border-radius: 50%;
   object-fit: cover;
   border: 4px solid white;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
 }
-
 .dark .member-avatar {
   border-color: #242424;
 }
-
 .member-card-container:hover .member-avatar {
-  transform: scale(1.05); /* Аватарка чуть увеличивается при наведении */
+  transform: scale(1.05);
 }
 
-/* Специфичные цвета для бейджей команды */
-.badge.member-city {
-  background-color: #ffe4b5;
-  color: #8b4500;
-}
-
-.badge.member-company {
-  background-color: #e2e2e2;
-  color: #333;
-}
-
+/* Card Content */
 .card-info-side,
 .member-info {
   flex: 1;
@@ -276,6 +271,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  min-width: 0;
 }
 
 .route-name,
@@ -284,18 +280,17 @@ body {
   font-size: 1.4rem;
   color: #333;
 }
-
 .dark .route-name,
 .dark .name-container {
   color: #ebebeb;
 }
-
 .email-container {
   color: #4e5e4d;
   font-weight: 500;
   display: block;
-  word-wrap: break-word; /* Заставит длинный email перенестись на новую строку */
+  word-wrap: break-word;
   overflow-wrap: break-word;
+  word-break: break-all;
   margin-top: 5px;
 }
 .email-container.dark {
@@ -319,7 +314,6 @@ body {
   padding-top: 15px;
   margin-top: 15px;
 }
-
 .dark .card-footer-actions {
   border-top-color: #666;
 }
@@ -347,7 +341,6 @@ body {
   cursor: pointer;
   transition: all 0.3s ease;
 }
-
 .fav-button:hover {
   background-color: #5f8b8c;
   color: white;
@@ -379,7 +372,7 @@ body {
 }
 
 /* =========================================
-   6. TEAM PAGE
+   TEAM PAGE
    ========================================= */
 .team-container {
   display: flex;
@@ -405,7 +398,6 @@ body {
   font-size: 16px;
   outline: none;
 }
-
 .searching-member-container.dark {
   background-color: #4b6d6e;
   border-color: #314747;
@@ -416,7 +408,7 @@ body {
 }
 
 /* =========================================
-   7. ROUTE DETAILS PAGE
+  ROUTE DETAILS PAGE
    ========================================= */
 .route-details-page {
   display: flex;
@@ -425,17 +417,14 @@ body {
   padding: 40px 20px;
   width: 100%;
 }
-
 .details-header,
 .details-card {
   width: 100%;
   max-width: 800px;
 }
-
 .details-header {
   margin-bottom: 20px;
 }
-
 .back-button {
   text-decoration: none;
   color: #5f8b8c;
@@ -461,7 +450,6 @@ body {
   color: white;
   box-shadow: 0px 10px 25px rgba(255, 255, 255, 0.05);
 }
-
 .details-hero-image {
   width: 100%;
   height: 350px;
@@ -514,6 +502,14 @@ body {
   background-color: #e2e2e2;
   color: #333;
 }
+.badge.member-city {
+  background-color: #ffe4b5;
+  color: #8b4500;
+}
+.badge.member-company {
+  background-color: #e2e2e2;
+  color: #333;
+}
 
 .description-section h3 {
   font-size: 22px;
@@ -532,12 +528,12 @@ body {
 }
 
 /* =========================================
-   8. FOOTER
+  FOOTER
    ========================================= */
 .footer {
   width: 100%;
   padding: 40px 50px;
-  margin-top: auto; /* Жестко прижимает футер к низу */
+  margin-top: auto;
   background-color: #ffffff;
   border-top: 1px solid #eaeaea;
   display: flex;
@@ -547,7 +543,6 @@ body {
   gap: 20px;
   transition: all 0.3s ease;
 }
-
 .footer.dark {
   background-color: #1a1a1a;
   border-top: 1px solid #333;
@@ -571,65 +566,56 @@ body {
 }
 
 /* =========================================
-   9. RESPONSIVE (МЕДИА-ЗАПРОСЫ ВСЕГДА В КОНЦЕ)
+  RESPONSIVE
    ========================================= */
 
-/* --- ПЛАНШЕТЫ (экраны до 1024px) --- */
+/* --- Tablets (651px to 1024px) --- */
 @media (max-width: 1024px) {
-  /* 1. Чиним меню: уменьшаем огромные пробелы */
   .navigation-menu {
     gap: 20px;
     padding: 10px 20px;
   }
 
-  /* 2. Сетка: карточки по 300px, чтобы на iPad идеально влезало 2 колонки */
   .routeCards-container,
   .members-container {
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
-    width: 100%;
+    grid-template-columns: 1fr;
+    width: 95%;
+    max-width: 750px;
     padding: 15px;
   }
 
-  /* 3. Карточки становятся вертикальными */
   .route-card-container,
   .member-card-container {
-    flex-direction: column; 
-    min-height: auto;
+    flex-direction: row;
   }
 
-  /* 4. КРИТИЧНО: Картинка и аватарка должны занять всю ширину! */
   .card-image-side,
   .member-avatar-side {
-    width: 100%;
-    height: 200px;
-    border-right: none;
-    border-bottom: 1px solid #ddd;
+    width: 250px;
+    height: auto;
+    border-right: 1px solid #ddd;
+    border-bottom: none;
   }
-
   .dark .member-avatar-side {
-    border-bottom-color: #444;
+    border-right-color: #444;
   }
 
-  /* 5. Кнопки на всю ширину для пальцев */
   .card-footer-actions {
-    flex-direction: column;
+    flex-direction: row;
     gap: 15px;
   }
-  
   .fav-button {
-    width: 100%;
+    width: auto;
   }
 }
 
-/* --- ТЕЛЕФОНЫ (экраны до 650px) --- */
+/* --- Phones (max 650px) --- */
 @media (max-width: 650px) {
   .navigation-menu {
     flex-wrap: wrap;
     gap: 15px;
     padding: 15px;
   }
-
   .link {
     font-size: 16px;
     padding: 5px;
@@ -639,7 +625,41 @@ body {
   .members-container {
     grid-template-columns: 1fr;
     width: 100%;
-    padding: 15px;
+  }
+
+  .route-card-container,
+  .member-card-container {
+    flex-direction: column;
+  }
+
+  .card-image-side,
+  .member-avatar-side {
+    width: 100%;
+    height: 200px;
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+  }
+  .dark .member-avatar-side {
+    border-bottom-color: #444;
+  }
+
+  .card-footer-actions {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .fav-button {
+    width: 100%;
+  }
+
+  .hero-content {
+    min-height: 50vh;
+    padding: 30px 20px;
+  }
+  .homepage-title {
+    font-size: 2.5rem;
+  }
+  .homepage-description {
+    font-size: 1.1rem;
   }
 
   .footer {
