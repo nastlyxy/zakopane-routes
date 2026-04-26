@@ -1,16 +1,26 @@
-# React + Vite
+# 🏔️ Zakopane Routes
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive React application designed to help travelers plan their perfect mountain adventure in the Polish Tatras. 
 
-Currently, two official plugins are available:
+## 🌟 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Dynamic Routing:** Seamless navigation between home, trails list, and detailed route pages.
+- **Dark/Light Mode:** Integrated theme switching using React Context API.
+- **Favorites System:** Users can easily save and track their favorite mountain trails.
+- **Find Members:** A section to search for hiking buddies (demonstrates API fetching and filtering).
+- **Responsive Design:** Fully adaptive UI using CSS Grid and Flexbox, optimized for both desktop and mobile devices.
 
-## React Compiler
+## 🛠️ Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Frontend:** React (Vite)
+- **Routing:** React Router v6
+- **Styling:** Vanilla CSS (BEM-inspired structure)
+- **State Management:** React Hooks (`useState`, `useEffect`, `useContext`)
 
-## Expanding the ESLint configuration
+## How to Run the Project Locally
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+If you want to run this project on your own machine, follow these steps:
+
+1. **Clone the repository:**
+   ```bash
+   git clone [https://github.com/YOUR_GITHUB_USERNAME/zakopane-routes.git](https://github.com/YOUR_GITHUB_USERNAME/zakopane-routes.git)

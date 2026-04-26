@@ -171,6 +171,65 @@ body {
     grid-template-columns: 1fr;
   }
 }
+/* =========================================
+   10. RESPONSIVE 
+   ========================================= */
+
+/* --- ПЛАНШЕТЫ (экраны до 1024px) --- */
+@media (max-width: 1024px) {
+  /* 1. Сетка: делаем карточки поуже, чтобы влезло 2 в ряд */
+  .routeCards-container,
+  .members-container {
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 25px;
+  }
+
+  /* 2. Сами карточки: переводим из горизонтальных в вертикальные */
+  .route-card-container,
+  .member-card-container {
+    flex-direction: column; 
+    min-height: auto;
+  }
+  
+
+  /* 4. Кнопки: ставим друг под другом для удобного нажатия пальцем */
+  .card-footer-actions {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  
+}
+
+/* --- ТЕЛЕФОНЫ (экраны до 650px) --- */
+@media (max-width: 650px) {
+  /* 1. Навигация: разрешаем кнопкам переноситься на новую строку */
+  .navigation-menu {
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 15px;
+  }
+  
+  .link {
+    font-size: 16px;
+    padding: 5px;
+  }
+
+  /* 2. Сетка: строго одна колонка на весь экран */
+  .routeCards-container,
+  .members-container {
+    grid-template-columns: 1fr;
+    width: 100%;
+    padding: 15px;
+  }
+
+  /* 3. Футер: выравниваем по центру */
+  .footer {
+    flex-direction: column;
+    text-align: center;
+    padding: 30px 20px;
+  }
+}
 
 /* =========================================
    Cards styles
@@ -489,7 +548,7 @@ body {
 .footer {
   width: 100%;
   padding: 40px 50px;
-  margin-top: auto;
+  margin-top: 20px;
   background-color: #ffffff;
   border-top: 1px solid #eaeaea;
   display: flex;
